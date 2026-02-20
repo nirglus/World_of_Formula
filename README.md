@@ -1,32 +1,42 @@
-# 🏎️ World of Formula - E-commerce Platform for Formula 1 Diecast Models
+# World of Formula
 
-World of Formula is an e-commerce platform dedicated to Formula 1 diecast models. Dive into the World of Formula 1 and explore our curated collection of diecast models, celebrating the rich history and innovation of the sport.
+World of Formula is a full-stack e-commerce application that simulates an online store for Formula 1 diecast models.  
+The project demonstrates end-to-end system development, from frontend user experience to backend API design and database architecture.
 
-🌐 Visit the live site: [World of Formula](https://world-of-formula.web.app/)
+## Project Overview
 
-<img width="946" alt="wof" src="https://github.com/nirglus/IITC-Studies/assets/119694737/47f58d5e-32d6-445d-8266-642be7df2a0b">
+The application provides a complete online store experience including:
 
-## ✨ Features
+- Product browsing and catalog display  
+- Admin product management  
+- User and administrative workflows  
+- Backend API communication  
+- Environment-based deployment  
 
-- 🛒 Browse and purchase a wide range of Formula 1 diecast models
-- 📚 Learn about the history and stories behind each car, driver, and team
-- 💳 Secure payment options for a seamless checkout experience (coming soon)
-- 📱 Mobile-responsive design for easy access on all devices
-- 🛠️ Admin and user dashboards for managing products and orders
+## My Contribution
 
-## 🛠️ Technologies Used
+This is an independent project built end-to-end, including:
 
-- **Frontend**: ⚛️ React.js, 🎨 Sass
-- **Backend**: 🟩 Node.js, 🌐 Express.js
-- **Database**: 🍃 MongoDB
-- **Deployment**: 🚀 Render, 🔥 Firebase
+- Developing the frontend using React  
+- Building a RESTful backend API with Node.js and Express  
+- Designing and implementing a MongoDB data model  
+- Implementing admin and user flows  
+- Deploying the application and managing environment configuration  
+- Improving code structure, maintainability, and system reliability  
 
-## 🚀 Getting Started
+## Tech Stack
 
-To visit the live platform, simply navigate to [World of Formula](https://world-of-formula.web.app/).
+**Frontend:** React, Sass  
+**Backend:** Node.js, Express  
+**Database:** MongoDB  
+**Deployment:** Firebase, Render  
 
-## 📜 License
+## Live Demo
 
-This project is licensed under the [MIT License](LICENSE).
+https://world-of-formula.web.app/
 
-`nirglus` `https://world-of-formula.web.app/`
+*Note: the backend may be inactive at times due to free-tier hosting limitations.*
+
+## Screenshot
+
+![World of Formula](https://github.com/nirglus/IITC-Studies/assets/119694737/47f58d5e-32d6-445d-8266-642be7df2a0b)
