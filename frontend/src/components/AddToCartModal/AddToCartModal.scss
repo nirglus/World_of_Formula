@@ -1,0 +1,32 @@
+.addItemModal{
+    width: 300px;
+    height: 30vh;
+    border-radius: 10px;
+    box-shadow: var(--navShadow);
+    border: 0;
+    &::backdrop{
+        background: rgba(0, 0, 0, 0.7);
+    }
+    .modalContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        h2{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        i{
+            color: var(--cartBtnColor);
+            font-size: 40px;
+        }
+        .bi-person-fill-exclamation{
+            color: var(--btnRed);
+        }
+        p{
+            text-align: center;
+        }
+    }
+}

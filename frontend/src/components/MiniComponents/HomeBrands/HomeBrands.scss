@@ -1,0 +1,25 @@
+.brands{
+    width: 100%;
+    .brandsImgs{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: var(--brandsBg);
+    }
+}
+
+@media (min-width: 550px) and (max-width: 1024px) {
+    .brandsImgs{
+        img{
+            width: 80px;
+        }
+    } 
+  }
+
+@media (max-width: 550px) {
+    .brandsImgs{
+        img{
+            width: 50px;
+        }
+    } 
+  }

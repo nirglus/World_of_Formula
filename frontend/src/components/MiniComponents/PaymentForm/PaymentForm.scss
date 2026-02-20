@@ -1,0 +1,15 @@
+.payment-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cardDates{
+    display: flex;
+    gap: 5px;
+    #expiryDate, #cvv{
+        width: 85px;
+    }
+}
+.cardLabel{
+    width: 80px;
+}

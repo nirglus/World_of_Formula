@@ -1,0 +1,128 @@
+.productDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .licensed{
+    background-color: #d63424;
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 2.3em;
+    align-self: flex-start;
+  }
+
+  .itemDesc {
+    max-width: 30vw;
+    font-size: 17px;
+    font-weight: 500;
+    color: #8f8b8b;
+  }
+
+  .productStats {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 18px;
+
+    p {
+      border-bottom: 1px solid rgb(181, 181, 181);
+      padding-bottom: 10px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    span {
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  }
+
+  .quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 30%;
+    justify-content: space-between;
+    border: 2px solid #c0bfbf;
+    border-radius: 10px;
+    padding: 10px 15px;
+
+    .quantity-btn {
+      color: #767575;
+      &:hover {
+        font-weight: 500;
+        cursor: pointer;
+        color: black;
+      }
+      &:active {
+        transform: translateY(2px);
+      }
+    }
+  }
+
+  .quantity-addToCart {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 30px;
+    span {
+      font-size: 16px;
+    }
+  }
+
+  .backToProducts {
+    margin: 70px 0 20px 0;
+    color: rgb(151, 151, 151);
+    transition: 0.2s;
+    &:hover {
+      color: var(--darkBrownGray);
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 500px){
+    .productDescription{
+        .licensed{
+            align-self: center;
+            font-size: 8px;
+        }
+        h1{
+            font-size: 1.7em;
+            align-self: center;
+        }
+        .itemDesc{
+            max-width: 70vw;
+            text-align: center;
+        }
+        .quantity-addToCart{
+            gap: 13px;
+        }
+    }
+}
+
+@media (min-width: 500px) and (max-width: 950px){
+    .productDescription{
+        .licensed{
+            align-self: center;
+            font-size: 10px;
+        }
+        h1{
+            align-self: center;
+        }
+        .itemDesc{
+            max-width: 70vw;
+            text-align: center;
+        }
+    }
+}

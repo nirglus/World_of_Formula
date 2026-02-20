@@ -1,0 +1,26 @@
+.accountDashboard{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .dashboardDisplay{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+.compDisplay{
+    flex: 8;
+}
+
+@media (max-width: 650px){
+    .accountDashboard{
+        .dashboardDisplay{
+            flex-direction: column;
+        }
+
+    }
+}

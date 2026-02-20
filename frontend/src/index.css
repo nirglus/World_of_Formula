@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');  /* headings font */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+:root{
+    font-family: "Roboto", sans-serif;
+    --veryLightBiege: #FDF7E4;
+    --lightBiege: #FAEED1;
+    --lightGray: #DED0B6;
+    --brownGray: #BBAB8C;
+    --darkBrownGray:rgb(118, 85, 20);
+    --btnRed : rgb(126 30 0);
+    --btnRedHover: rgb(93, 22, 1);
+    --btnHover: rgb(83, 60, 16);
+    --cartBtnColor: #004225;
+    --cartBtnHover: #1d7a51;
+    --deleteBtn: #b30000;
+    --deleteHover: #9d0505;
+    --mainBg: #fff4ec;
+    --brandsBg: #dcdcdc;
+    --navShadow: 0px 6px 9px -7px rgba(83, 60, 16, 0.77);
+    --navGrad: linear-gradient( 109.6deg,  rgba(113,14,51,0.83) 15.2%, rgba(217,43,23,0.95) 96.8% );
+    --footerGrad: linear-gradient(to bottom, #363636, #363636, #373737, #373737, #383737, #373636, #373536, #363435, #333233, #313031, #2e2e2e, #2c2c2c);    
+    --headingFont: "Madimi One", sans-serif;;
+}

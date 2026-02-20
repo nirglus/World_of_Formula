@@ -1,0 +1,59 @@
+.sidebar{
+    border-right: 1px solid #00000023;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--brandsBg);
+    flex: 1;
+    .titles{
+        padding: 0 40px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .dashLink{
+        padding: 20px;
+        i{
+            margin-right: 5px;
+        }
+        &:hover{
+            background: var(--navGrad);
+            color: #fff;
+            cursor: pointer;
+        }
+        &.active{
+            background: var(--navGrad);
+            color: #fff;
+        }
+    }
+
+    .avatar{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        border: 5px solid #9E9E9E;
+        background-image: url(../../../assets/race-car-driver-1015422_640.jpg);
+        background-size: contain;
+ 
+    }
+    .spans{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 650px){
+    .sidebar{
+        min-height: fit-content;
+        .spans{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            font-size: 0.7em;
+        }
+        .avatar{
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

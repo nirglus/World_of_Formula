@@ -1,0 +1,17 @@
+.thankYou{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    h1{
+        font-family: var(--headingFont);
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 768px){
+    .thankYou{
+        text-align: center;
+        padding: 20px;
+    }
+}
