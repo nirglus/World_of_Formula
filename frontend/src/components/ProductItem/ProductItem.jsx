@@ -32,13 +32,14 @@ function ProductItem({ product, isAdmin, onDelete, setProducts }) {
       setIsEditMode(false);
       setProducts((prevProducts) => {
         const existingProductIndex = prevProducts.findIndex(
-          (product) => product.id === res.data.id
+          (p) => p._id === res.data._id
         );
         if (existingProductIndex !== -1) {
           const updatedProducts = [...prevProducts];
           updatedProducts[existingProductIndex] = res.data;
           return updatedProducts;
         }
+        return prevProducts;
       });
     } catch (error) {
       console.error('Failed to save product changes', error);
@@ -68,7 +69,7 @@ function ProductItem({ product, isAdmin, onDelete, setProducts }) {
   };
 
   const handleAddToCart = () => {
-    const productID = product.id;
+    const productID = product._id;
     const cartID = userCart.id;
     const price = product.price;
     addItemToCart({ productID, cartID, price, quantity });
@@ -137,7 +138,7 @@ function ProductItem({ product, isAdmin, onDelete, setProducts }) {
             onError={handleImageError}
           />
           <h2>
-            <Link to={`/products/${product.id}`}>{product.title}</Link>
+            <Link to={`/products/${product._id}`}>{product.title}</Link>
           </h2>
           <p className='productQuantity'>In stock: {product.totalQuantity}</p>
           <p className='price'>${(quantity * product.price).toFixed(2)}</p>
