@@ -1,99 +1,222 @@
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,600;1,600&display=swap');
-nav{
-    top: 0;
-    padding: 0 20px;
+
+.siteHeader {
     position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    background: #0A0A0A;
+    color: var(--brand-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navBar {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+}
+
+.navContainer {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-image: var(--navGrad);
-    // border-bottom-left-radius: 10px;
-    // border-bottom-right-radius: 10px ;
-    box-shadow: var(--navShadow);
-    z-index: 999999;
-
-    .hamburger {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 25px;
-        height: 20px;
-        cursor: pointer;
-  
-        .line {
-          width: 100%;
-          height: 3px;
-          background-color: #fff;
-          border-radius: 3px;
-        }
-    }
-    
 }
 
-.navItems ul{
+.navLogo {
     display: flex;
     align-items: center;
     gap: 10px;
-    li{
-        list-style: none;
+    text-decoration: none;
+    color: var(--brand-white);
+    font-family: "Shantell Sans", cursive;
+    font-weight: 600;
+    font-size: 1rem;
+    -webkit-tap-highlight-color: transparent;
+
+    img {
+        width: 36px;
+        height: 36px;
+        object-fit: contain;
     }
-    a{
-      color: #fff;
-      transition: color 0.3s;
-        &:hover{
-            color: var(--brownGray);
-            font-weight: 700;
+
+    &:hover {
+        color: var(--brand-white);
+    }
+
+    &:active {
+        background: rgba(255, 255, 255, 0.06);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-red);
+        outline-offset: 2px;
+    }
+}
+
+.navBrand {
+    white-space: nowrap;
+}
+
+.navItems {
+    position: relative;
+}
+
+.navItems ul {
+    display: flex;
+    align-items: center;
+    gap: 8px 28px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    a, .navSignOut {
+        position: relative;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--brand-white);
+        text-decoration: none;
+        transition: color 0.2s;
+        -webkit-tap-highlight-color: transparent;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 2px;
+            background: var(--accent-red);
+            transform: scaleX(0);
+            transition: transform 0.2s;
+        }
+
+        &:hover {
+            color: var(--brand-white);
+
+            &::after {
+                transform: scaleX(1);
+                background: var(--accent-red-hover);
+            }
+        }
+
+        &:active {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--accent-red);
+            outline-offset: 2px;
+        }
+
+        &.active {
+            font-weight: 600;
+            color: var(--brand-white);
+
+            &::after {
+                transform: scaleX(1);
+                background: var(--accent-red);
+            }
+        }
+    }
+
+    .navSignOut {
+        &:hover::after {
+            transform: scaleX(1);
         }
     }
 }
 
-.logo{
-  display: flex;
-  gap: 3px;
-  align-items: center;
-  color: #fff;
-  font-family: "Shantell Sans", cursive;
-  font-weight: 600;
-  text-align: center;
-  font-size: 0.71em;
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 20px;
+    padding: 0;
+    background: none !important;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    .line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--brand-white);
+        border-radius: 2px;
+    }
+
+    &:hover {
+        background: none !important;
+    }
+
+    &:active {
+        background: rgba(255, 255, 255, 0.06) !important;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent-red);
+        outline-offset: 2px;
+    }
 }
 
-
 @media (max-width: 800px) {
-    .logo {
-      img{
-        width: 40px;
-      }
+    .navContainer {
+        padding: 0 16px;
     }
+
+    .hamburger {
+        display: flex;
+    }
+
     .navItems ul {
-      display: none;
-      flex-direction: column;
-      background-image: var(--navGrad);
-      padding: 10px;
-      border-radius: 5px;
-      position: absolute;
-      top: 35px;
-      right: 0px;
-      width: 99vw;
-      box-shadow: var(--navShadow);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0A0A0A;
+        padding: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     .navItems.active ul {
-      display: flex;
-      @keyframes slideIn {
-        from {
-          opacity: 0;
-          transform: translateY(-50px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-        animation: slideIn 0.5s ease forwards;
+        display: flex;
+        animation: slideDown 0.25s ease;
     }
 
-    .navItems .hamburger {
-      display: flex;
+    .navItems ul a,
+    .navItems ul .navSignOut {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        &::after {
+            display: none;
+        }
     }
-  }
+
+    @keyframes slideDown {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+}

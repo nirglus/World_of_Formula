@@ -1,35 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap'); // test font
 
+.appLayout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.appMain {
+    flex: 1;
+}
+
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--mainBg);
+    background: linear-gradient(to bottom,
+        #0A0A0A 0, #0A0A0A 150px,
+        var(--mainBg) 150px, var(--mainBg) calc(100% - 150px),
+        #0A0A0A calc(100% - 150px), #0A0A0A 100%);
 }
-button, .viewProducts{
+
+#root, #modals {
+    margin: 0;
+    padding: 0;
+}
+button, .viewProducts {
     font-family: "Roboto", sans-serif;
     border: 0;
     border-radius: 5px;
     padding: 10px;
-    background-color: var(--btnRed);
-    color: #fff;
+    background-color: var(--accent-red);
+    color: var(--brand-white);
     text-decoration: none;
-    transition: background-color 0.3s;
-    box-shadow: var(--navShadow);
-    &:hover{
-        background-color: var(--btnRedHover);
+    transition: all 0.25s ease;
+    box-shadow: var(--shadow);
+    &:hover {
+        background-color: var(--accent-red-hover);
         cursor: pointer;
     }
-    &:active{
+    &:active {
         transform: translateY(2px);
     }
-    a{
-        color: #fff;
+    a {
+        color: var(--brand-white);
     }
 }
 
-a{
+a {
     text-decoration: none;
-    color: #000;
+    color: var(--text);
 }
 
 .titles{

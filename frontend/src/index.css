@@ -1,24 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');  /* headings font */
+@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
-:root{
+
+/* Brand palette: BLACK / WHITE / RED only + neutral grays */
+:root {
     font-family: "Roboto", sans-serif;
-    --veryLightBiege: #FDF7E4;
-    --lightBiege: #FAEED1;
-    --lightGray: #DED0B6;
-    --brownGray: #BBAB8C;
-    --darkBrownGray:rgb(118, 85, 20);
-    --btnRed : rgb(126 30 0);
-    --btnRedHover: rgb(93, 22, 1);
-    --btnHover: rgb(83, 60, 16);
-    --cartBtnColor: #004225;
-    --cartBtnHover: #1d7a51;
+    --brand-black: #0B0B0F;
+    --brand-white: #FFFFFF;
+    --bg: #F5F5F7;
+    --surface: #FFFFFF;
+    --text: #111111;
+    --muted: #6B6B73;
+    --border: #E5E5EA;
+    --accent-red: #E10600;
+    --accent-red-hover: #C70500;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadowHover: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --headingFont: "Madimi One", sans-serif;
+    --navBg: #0B0B0F;
+    --footerBg: #0B0B0F;
+    --mainBg: #F5F5F7;
     --deleteBtn: #b30000;
     --deleteHover: #9d0505;
-    --mainBg: #fff4ec;
-    --brandsBg: #dcdcdc;
-    --navShadow: 0px 6px 9px -7px rgba(83, 60, 16, 0.77);
-    --navGrad: linear-gradient( 109.6deg,  rgba(113,14,51,0.83) 15.2%, rgba(217,43,23,0.95) 96.8% );
-    --footerGrad: linear-gradient(to bottom, #363636, #363636, #373737, #373737, #383737, #373636, #373536, #363435, #333233, #313031, #2e2e2e, #2c2c2c);    
-    --headingFont: "Madimi One", sans-serif;;
+    /* Legacy aliases for components */
+    --cartBtnColor: #E10600;
+    --cartBtnHover: #C70500;
+    --btnRed: #E10600;
+    --btnRedHover: #C70500;
+    --navGrad: linear-gradient(180deg, #0A0A0A 0%, #0B0B0F 100%);
+    --footerGrad: linear-gradient(180deg, #0B0B0F 0%, #0A0A0A 100%);
+    --navShadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset: remove top/bottom gap (browser default html margin causes white strip) */
+html {
+    margin: 0;
+    padding: 0;
+    background: #0A0A0A;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button, a, img {
+    transition: all 0.25s ease;
 }

@@ -18,12 +18,12 @@
             margin-right: 5px;
         }
         &:hover{
-            background: var(--navGrad);
+            background: var(--navBg);
             color: #fff;
             cursor: pointer;
         }
         &.active{
-            background: var(--navGrad);
+            background: var(--navBg);
             color: #fff;
         }
     }

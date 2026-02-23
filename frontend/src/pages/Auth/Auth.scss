@@ -5,7 +5,7 @@
   .toggleLog {
     transition: color 0.3s ease;
     &:hover {
-      color: var(--btnRed);
+      color: var(--accent-red);
       cursor: pointer;
     }
   }
