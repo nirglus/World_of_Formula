@@ -33,7 +33,8 @@ This is an independent project built end-to-end, including:
 
 ## Live Demo
 
-https://world-of-formula.web.app/
+- **Frontend (Firebase):** https://world-of-formula-4cded.web.app
+- **Backend (Render):** https://world-of-formula.onrender.com/
 
 *Note: the backend may be inactive at times due to free-tier hosting limitations.*
 
