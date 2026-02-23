@@ -6,7 +6,6 @@
     margin-bottom: 20px;
     min-height: 100vh;
 
-
     .productsDisp{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -14,6 +13,36 @@
         align-items: center;
         gap: 30px;
         width: 90%;
+    }
+
+    .productsError {
+        text-align: center;
+        padding: 40px 20px;
+        color: #555;
+
+        p {
+            margin-bottom: 16px;
+            font-size: 1.1em;
+        }
+    }
+
+    .retryBtn {
+        padding: 10px 24px;
+        background-color: var(--cartBtnColor, #e53935);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1em;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--cartBtnHover, #c62828);
+        }
+    }
+
+    .productsEmpty {
+        color: #777;
+        font-size: 1.1em;
     }
 }
 
