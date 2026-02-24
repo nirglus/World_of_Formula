@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { UserContext } from '../../context/User'
 import { useContext ,useState} from 'react'
 import { NavLink, Link } from 'react-router-dom';
@@ -14,11 +14,16 @@ function Navbar() {
   }
 
   const closeMenu = () => {
-    setIsOpen(false); 
+    setIsOpen(false);
   };
 
+  useEffect(() => {
+    document.body.classList.toggle('no-scroll', isOpen);
+    return () => document.body.classList.remove('no-scroll');
+  }, [isOpen]);
+
   return (
-    <header className="siteHeader">
+    <header className={`siteHeader ${isOpen ? 'menuOpen' : ''}`}>
       <nav className="navBar">
       <div className="navContainer">
       <Link to="/" className="navLogo">
@@ -31,21 +36,24 @@ function Navbar() {
           <div className="line"></div>
           <div className="line"></div>
         </div>
-        <ul>
-          <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
-          <li><NavLink to="/products" onClick={closeMenu}>Products</NavLink></li>
-          {user && <li><NavLink to={`/cart/${user.id}`} onClick={closeMenu}>Cart</NavLink></li>}
-          {user && <li><NavLink to={`/account/${user.id}`} onClick={closeMenu}>My Account</NavLink></li>}
-          {isModerator(user) && <li><NavLink to="/dashboard" onClick={closeMenu}>Dashboard</NavLink></li>}
-          {user ? (
-            <li><button type="button" className="navSignOut" onClick={signOut}><i className="bi bi-box-arrow-left"></i> Sign out, <b>{user.fullName}</b></button></li>
-          ) : (
-            <li><NavLink to="/login" onClick={closeMenu}>Login</NavLink></li>
-          )}
-        </ul>
+        <div className="navDrawer">
+          <ul>
+            <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
+            <li><NavLink to="/products" onClick={closeMenu}>Products</NavLink></li>
+            {user && <li><NavLink to={`/cart/${user.id}`} onClick={closeMenu}>Cart</NavLink></li>}
+            {user && <li><NavLink to={`/account/${user.id}`} onClick={closeMenu}>My Account</NavLink></li>}
+            {isModerator(user) && <li><NavLink to="/dashboard" onClick={closeMenu}>Dashboard</NavLink></li>}
+            {user ? (
+              <li><button type="button" className="navSignOut" onClick={signOut}><i className="bi bi-box-arrow-left"></i> Sign out, <b>{user.fullName}</b></button></li>
+            ) : (
+              <li><NavLink to="/login" onClick={closeMenu}>Login</NavLink></li>
+            )}
+          </ul>
+        </div>
       </div>
       </div>
     </nav>
+    <div className="navOverlay" onClick={closeMenu} aria-hidden={!isOpen} />
     </header>
   )
 }

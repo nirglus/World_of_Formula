@@ -32,7 +32,7 @@ $containerMax: 1200px;
         display: block;
         width: 60px;
         height: 3px;
-        background: var(--accent-red, #E10600);
+        background: var(--accent-red);
         margin-top: 8px;
         margin-bottom: 18px;
     }
@@ -64,7 +64,7 @@ $containerMax: 1200px;
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--muted);
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 999px;
     transition: all 0.2s ease;
@@ -94,12 +94,12 @@ button.chip {
     font-size: 0.8rem;
     color: var(--muted);
     padding: 12px 0 32px;
-    border-bottom: 1px solid var(--border, #E5E5EA);
+    border-bottom: 1px solid var(--border);
     margin-bottom: 24px;
 }
 
 .toolbarCard {
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 16px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -126,7 +126,7 @@ button.chip {
 
     &:focus-within {
         border-color: var(--accent-red);
-        background: #fff;
+        background: var(--surface);
     }
 
     i {
@@ -156,7 +156,7 @@ button.chip {
     font-size: 0.9rem;
     border: 1px solid var(--border);
     border-radius: 10px;
-    background: #fff;
+    background: var(--surface);
     color: var(--text);
     cursor: pointer;
     appearance: none;
@@ -200,7 +200,7 @@ button.chip {
 .productsError {
     text-align: center;
     padding: 48px 24px;
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
@@ -213,8 +213,8 @@ button.chip {
 
 .retryBtn {
     padding: 12px 28px;
-    background: var(--accent-red, #E10600);
-    color: #fff;
+    background: var(--accent-red);
+    color: var(--brand-white);
     border: none;
     border-radius: 10px;
     font-size: 1rem;
@@ -223,7 +223,7 @@ button.chip {
     transition: all 0.25s ease;
 
     &:hover {
-        background: #C70500;
+        background: var(--accent-red-hover);
         transform: translateY(-2px);
     }
 }
@@ -231,7 +231,7 @@ button.chip {
 .productsEmpty {
     text-align: center;
     padding: 48px 24px;
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
@@ -245,8 +245,8 @@ button.chip {
 .clearFiltersBtn {
     padding: 10px 20px;
     background: transparent;
-    color: var(--accent-red, #E10600);
-    border: 2px solid var(--accent-red, #E10600);
+    color: var(--accent-red);
+    border: 2px solid var(--accent-red);
     border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 500;
@@ -254,8 +254,8 @@ button.chip {
     transition: all 0.2s;
 
     &:hover {
-        background: var(--accent-red, #E10600);
-        color: #fff;
+        background: var(--accent-red);
+        color: var(--brand-white);
     }
 }
 

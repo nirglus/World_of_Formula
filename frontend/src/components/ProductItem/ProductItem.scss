@@ -41,7 +41,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
+    color: var(--muted);
     font-size: 0.9rem;
 }
 
@@ -68,7 +68,7 @@
     align-items: center;
     gap: 4px;
     transition: all 0.2s ease;
-    color: var(--text, #111);
+    color: var(--text);
 
     &.badge-new, &.badge-limited {
         margin: 0;
@@ -114,7 +114,7 @@
     padding: 2px 6px;
     font-size: 0.6rem;
     font-weight: 500;
-    color: var(--muted, #6B6B73);
+    color: var(--muted);
     background: rgba(255, 255, 255, 0.9);
     border-radius: 4px;
 }
@@ -128,7 +128,7 @@
 
 .productMeta {
     font-size: 0.7rem;
-    color: var(--muted, #6B6B73);
+    color: var(--muted);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -263,7 +263,7 @@
 
 .deleteBtn {
     background: var(--deleteBtn);
-    color: #fff;
+    color: var(--brand-white);
 
     &:hover { background: var(--deleteHover); }
 }
@@ -273,7 +273,7 @@
     display: grid;
     justify-content: center;
     padding: 15px;
-    background: #fff;
+    background: var(--surface);
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
@@ -289,7 +289,7 @@
         height: 36px;
         padding: 0 10px;
         border-radius: 6px;
-        border: 1px solid var(--border, #E5E5EA);
+        border: 1px solid var(--border);
     }
 
     .editBtns {
@@ -318,12 +318,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    color: #000;
+    background: var(--surface);
+    color: var(--text);
     width: 22px;
     height: 22px;
     border-radius: 4px;
-    border: 1px solid #000;
+    border: 1px solid var(--border);
     font-size: 1rem;
     cursor: pointer;
 }

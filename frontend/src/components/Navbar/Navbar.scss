@@ -7,7 +7,7 @@
     right: 0;
     width: 100%;
     z-index: 9999;
-    background: #0A0A0A;
+    background: var(--brand-black);
     color: var(--brand-white);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
@@ -68,7 +68,11 @@
     position: relative;
 }
 
-.navItems ul {
+.navDrawer {
+    display: contents;
+}
+
+.navDrawer ul {
     display: flex;
     align-items: center;
     gap: 8px 28px;
@@ -172,6 +176,11 @@
     }
 }
 
+/* Mobile: overlay + right slide-in drawer */
+.navOverlay {
+    display: none;
+}
+
 @media (max-width: 800px) {
     .navContainer {
         padding: 0 16px;
@@ -181,32 +190,66 @@
         display: flex;
     }
 
-    .navItems ul {
-        display: none;
+    .navDrawer {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 260px;
+        max-width: 280px;
+        height: 100vh;
+        background: var(--brand-black);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 9999;
+        overflow-y: auto;
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .navItems.active .navDrawer {
+        transform: translateX(0);
+    }
+
+    .navOverlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 9998;
+    }
+
+    .siteHeader.menuOpen .navOverlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .navDrawer ul {
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #0A0A0A;
-        padding: 16px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        margin: 0;
+        padding: 24px 20px;
+        list-style: none;
+        padding-top: 80px;
     }
 
-    .navItems.active ul {
-        display: flex;
-        animation: slideDown 0.25s ease;
+    .navDrawer ul li {
+        margin: 0;
     }
 
-    .navItems ul a,
-    .navItems ul .navSignOut {
-        padding: 12px 0;
+    .navDrawer a,
+    .navDrawer .navSignOut {
+        display: block;
+        padding: 14px 0;
+        font-size: 1rem;
+        color: var(--brand-white);
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
-        &:last-child {
+        &:last-of-type {
             border-bottom: none;
         }
 
@@ -215,8 +258,8 @@
         }
     }
 
-    @keyframes slideDown {
-        from { opacity: 0; }
-        to { opacity: 1; }
+    .navDrawer .navSignOut {
+        width: 100%;
+        text-align: left;
     }
 }

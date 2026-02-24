@@ -31,7 +31,6 @@ const activeDotStyle = {
     ...dotStyle,
     color: "black",
   };
-  
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
