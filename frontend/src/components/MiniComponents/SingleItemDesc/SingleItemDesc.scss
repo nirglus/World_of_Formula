@@ -17,6 +17,30 @@
   h1 {
     font-size: 2.3em;
     align-self: flex-start;
+    margin: 0 0 12px 0;
+    line-height: 1.25;
+  }
+
+  .productHighlights {
+    list-style: none;
+    margin: 0 0 16px 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    font-size: 0.8rem;
+    color: var(--muted);
+    align-self: flex-start;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    i {
+      color: var(--accent-red);
+      font-size: 0.9rem;
+    }
   }
 
   .itemDesc {
@@ -24,6 +48,8 @@
     font-size: 17px;
     font-weight: 500;
     color: var(--muted);
+    margin: 0 0 20px 0;
+    line-height: 1.5;
   }
 
   .productStats {
@@ -32,6 +58,7 @@
     justify-content: flex-start;
     width: 100%;
     font-size: 18px;
+    margin-bottom: 4px;
 
     p {
       border-bottom: 1px solid var(--border);
@@ -49,11 +76,20 @@
 
   .quantity-addToCart {
     width: 100%;
-    margin-top: 30px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
 
     span {
       font-size: 16px;
     }
+  }
+
+  .trustLine {
+    margin: 10px 0 0 0;
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
   }
 
   .purchaseRow {
@@ -259,7 +295,15 @@
         }
     }
 
+    .trustLine {
+        margin-top: 10px;
+    }
+
     @media (max-width: 500px) {
+        .productHighlights {
+            justify-content: center;
+            align-self: center;
+        }
         .purchaseRow {
             flex-direction: column;
             align-items: stretch;
@@ -271,6 +315,17 @@
         }
         .purchaseRow .addToCartBtn {
             width: 100%;
+        }
+        .quantity-addToCart {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 12px 0;
+            margin-bottom: 0;
+            padding-bottom: max(12px, env(safe-area-inset-bottom));
+            background: var(--brand-white);
+            border-top: 1px solid var(--border);
         }
     }
 }

@@ -1,5 +1,80 @@
-@media (max-width: 500px){
-    .dots{
-        margin-top: -10px !important;
+.imageSliderWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.slideFrame {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 1;
+  filter: blur(4px);
+  transition: filter 0.35s ease;
+  border-radius: 10px;
+
+  &.slideImageLoaded {
+    filter: blur(0);
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 10px 0 0 0;
+  background: transparent;
+
+  .dot {
+    margin: 0;
+    padding: 11px;
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: var(--muted);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    font-size: 0;
+    line-height: 0;
+
+    &:hover {
+      background: var(--text);
     }
+
+    &:focus-visible {
+      outline: 2px solid var(--accent-red);
+      outline-offset: 2px;
+    }
+
+    &.active {
+      background: var(--accent-red);
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .dots {
+    padding: 8px 0 0 0;
+  }
 }

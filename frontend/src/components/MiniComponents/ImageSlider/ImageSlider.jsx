@@ -1,60 +1,80 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./ImageSlider.scss";
 
-const slideStyles = {
-  width: "100%",
-  height: "100%",
-  borderRadius: "10px",
-  backgroundSize: "cover",
-  backgroundPosition: "center",
-};
-
-const sliderStyles = {
-  position: "relative",
-  height: "100%",
-};
-
-const dotsContainerStyles = {
-  display: "flex",
-  justifyContent: "center",
-  marginTop: "-33px"
-};
-
-const dotStyle = {
-  margin: "0 3px",
-  cursor: "pointer",
-  fontSize: "20px",
-  color: "#a2a2a2",
-};
-
-const activeDotStyle = {
-    ...dotStyle,
-    color: "black",
-  };
+import placeholderImage from "../../../assets/no-image.png";
 
 const ImageSlider = ({ slides }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const goToSlide = (slideIndex) => {
-    setCurrentIndex(slideIndex);
-  };
-  const slideStylesWidthBackground = {
-    ...slideStyles,
-    backgroundImage: `url(${slides[currentIndex].url})`,
-  };
+  const [failedUrls, setFailedUrls] = useState({});
+  const [loadedIndex, setLoadedIndex] = useState(null);
+
+  const getSlideUrl = (slide, index) => (failedUrls[index] ? placeholderImage : (slide?.url || placeholderImage));
+
+  const handleError = useCallback((index) => {
+    setFailedUrls((prev) => ({ ...prev, [index]: true }));
+  }, []);
+
+  const handleLoad = useCallback((index) => {
+    setLoadedIndex(index);
+  }, []);
+
+  const goToSlide = (slideIndex) => setCurrentIndex(slideIndex);
+
+  if (!slides || slides.length === 0) {
+    return (
+      <div className="imageSliderWrap">
+        <img
+          src={placeholderImage}
+          alt="No image"
+          className="slideImage slideImageLoaded"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
+  const isSingleImage = slides.length === 1;
+  const currentUrl = getSlideUrl(slides[currentIndex], currentIndex);
+
+  if (isSingleImage) {
+    return (
+      <div className="imageSliderWrap">
+        <img
+          src={currentUrl}
+          alt={slides[0].title || "Product"}
+          className={`slideImage ${loadedIndex === 0 ? "slideImageLoaded" : ""}`}
+          loading="lazy"
+          onError={() => handleError(0)}
+          onLoad={() => handleLoad(0)}
+        />
+      </div>
+    );
+  }
 
   return (
-    <div style={sliderStyles}>
-      <div style={slideStylesWidthBackground}></div>
-      <div style={dotsContainerStyles} className="dots">
+    <div className="imageSliderWrap">
+      <div className="slideFrame">
+        <img
+          key={currentIndex}
+          src={currentUrl}
+          alt={slides[currentIndex]?.title || `Slide ${currentIndex + 1}`}
+          className={`slideImage ${loadedIndex === currentIndex ? "slideImageLoaded" : ""}`}
+          loading="lazy"
+          onError={() => handleError(currentIndex)}
+          onLoad={() => handleLoad(currentIndex)}
+        />
+      </div>
+      <div className="dots">
         {slides.map((slide, slideIndex) => (
-          <div
-          style={slideIndex === currentIndex ? activeDotStyle : dotStyle}
-            className="dot"
+          <button
+            type="button"
+            className={`dot ${slideIndex === currentIndex ? "active" : ""}`}
             key={slideIndex}
             onClick={() => goToSlide(slideIndex)}
+            aria-label={`Go to slide ${slideIndex + 1}`}
           >
-            ●
-          </div>
+            <span aria-hidden="true" />
+          </button>
         ))}
       </div>
     </div>
