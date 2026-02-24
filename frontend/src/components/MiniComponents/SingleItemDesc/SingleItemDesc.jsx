@@ -17,18 +17,20 @@ function SingleItemDesc({item, quantity, itemPrice, handleDecrement, handleIncre
         </p>
       </div>
       <div className="quantity-addToCart">
-        <div className="quantity">
+        <div className="purchaseRow">
+          <div className="quantity">
             <span className="quantity-btn" onClick={handleDecrement}>
-            -
+              -
             </span>
             <span>{quantity}</span>
             <span className="quantity-btn" onClick={handleIncrement}>
-            +
+              +
             </span>
-        </div>
-        <button className="addToCartBtn" onClick={handleAddToCart}>
+          </div>
+          <button className="addToCartBtn" onClick={handleAddToCart}>
             <i className="bi bi-cart-plus"></i> Add to cart - <span>${itemPrice}</span>
-        </button>
+          </button>
+        </div>
       </div>
       <Link to={"/products"} className="backToProducts">
         <i className="bi bi-sign-turn-left-fill"></i> Back to products
