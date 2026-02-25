@@ -1,27 +1,215 @@
-.cartItem{
-    display: flex;
-    gap: 4vw;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 40vw;
-    p,h3{
-        width: 250px;
-    }
+.cartItemRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  min-height: 100px;
+
+  &.cartItemRow--pending {
+    opacity: 0.9;
+  }
 }
 
-@media (max-width: 768px){
-    .cartItem{
-        gap: 1vw;
-    }
-    .removeFromCart{
-        display: none;
-    }
+.cartItemSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent-red);
+  border-radius: 50%;
+  animation: cartItemSpin 0.7s linear infinite;
 }
 
-@media (max-width: 500px){
-    .cartItem{
-        h3,p{
-            width: 170px;
-        }
+@keyframes cartItemSpin {
+  to { transform: rotate(360deg); }
+}
+
+.cartItemImageWrap {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  text-decoration: none;
+}
+
+.cartItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.cartItemImageLoaded {
+    opacity: 1;
+  }
+}
+
+.cartItemDetails {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cartItemTitle {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+
+  a {
+    color: var(--text);
+    text-decoration: none;
+    &:hover {
+      color: var(--accent-red);
     }
+    &:focus-visible {
+      outline: 2px solid var(--accent-red);
+      outline-offset: 2px;
+    }
+  }
+}
+
+.cartItemUnitPrice {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.cartItemActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.cartItemStepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  background: var(--bg);
+}
+
+.cartItemStepperBtn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface);
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: var(--border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 1px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.cartItemQty {
+  min-width: 24px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.cartItemLineTotal {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cartItemRemove {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    color: var(--accent-red);
+    border-color: var(--accent-red);
+    background: rgba(225, 6, 0, 0.06);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+
+  i {
+    font-size: 1.1rem;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@media (max-width: 600px) {
+  .cartItemRow {
+    flex-wrap: wrap;
+    padding: 12px;
+    gap: 12px;
+  }
+  .cartItemImageWrap {
+    width: 80px;
+    height: 80px;
+  }
+  .cartItemDetails {
+    flex: 1 1 180px;
+  }
+  .cartItemRemove {
+    margin-left: auto;
+    width: 44px;
+    height: 44px;
+  }
+  .cartItemActions {
+    gap: 12px;
+  }
+  .cartItemStepperBtn {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
 }

@@ -53,8 +53,10 @@ function ProductItem({ product, isAdmin, onDelete, setProducts, onBadgeClick, ac
   const handleDecrement = () => quantity > 1 && setQuantity((q) => q - 1);
 
   const handleAddToCart = () => {
-    addItemToCart({ productID: product._id, cartID: userCart.id, price: product.price, quantity });
-    dialog.current.open();
+    if (userCart?.id) {
+      addItemToCart({ cartID: userCart.id, productID: product._id, price: product.price, quantity });
+      dialog.current.open();
+    }
   };
 
   const handleImageError = () => {

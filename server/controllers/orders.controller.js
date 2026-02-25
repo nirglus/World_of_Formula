@@ -1,17 +1,26 @@
 const { Order } = require("../models/order.model");
+const { ShopCart } = require("../models/shopCart.model");
 
-const createOrder = async(req, res) =>{
+const createOrder = async (req, res) => {
     try {
-        const {userID, address, cartID, items, totalPrice} = req.body;
-        const newOrder = new Order({userID, address, cartID, items, totalPrice});
+        const { userID, address, cartID, items, totalPrice, shippingMethod } = req.body;
+
+        if (!cartID) {
+            return res.status(400).send("cartID is required");
+        }
+
+        const newOrder = new Order({ userID, address, cartID, items, totalPrice, shippingMethod });
         newOrder.id = newOrder._id;
         await newOrder.save();
-        res.send({message: "Order has been created"});  
+
+        await ShopCart.findByIdAndUpdate(cartID, { $set: { items: [], totalPrice: 0 } });
+
+        res.send({ message: "Order has been created" });
     } catch (error) {
-        console.log(error);
+        console.error("createOrder error:", error);
         res.status(400).send("Error");
     }
-}
+};
 
 const getOrder = async(req,res) =>{
     const {id} = req.params;

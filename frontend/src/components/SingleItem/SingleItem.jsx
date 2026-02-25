@@ -37,10 +37,10 @@ function SingleItem() {
   };
 
   const handleAddToCart = () => {
+    if (!userCart?.id) return;
     const productID = item.id ?? item._id;
-    const cartID = userCart.id;
     const price = item.price;
-    addItemToCart({ productID, cartID, price, quantity });
+    addItemToCart({ cartID: userCart.id, productID, price, quantity });
     dialog.current.open();
   };
 

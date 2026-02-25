@@ -1,131 +1,98 @@
 import { useState } from "react";
 import "./PaymentForm.scss";
 
-function PaymentForm({ handleSubmit }) {
-    const [paymentMethod, setPaymentMethod] = useState("paypal");
-    const [cardNumber, setCardNumber] = useState("");
-    const [expiryDate, setExpiryDate] = useState("");
-    const [cvv, setCVV] = useState("");
+function PaymentForm({ handleSubmit, isSubmitting }) {
+  const [paymentMethod, setPaymentMethod] = useState("paypal");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expiryDate, setExpiryDate] = useState("");
+  const [cvv, setCVV] = useState("");
 
-    const handlePaymentMethodChange = (e) => {
-        setPaymentMethod(e.target.value);
-    };
+  const handlePaymentMethodChange = (e) => setPaymentMethod(e.target.value);
 
-    const handleCardNumberChange = (e) => {
-        setCardNumber(e.target.value);
-    };
+  const handlePaymentSubmit = (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    handleSubmit(e, paymentMethod);
+  };
 
-    const handleExpiryDateChange = (e) => {
-        setExpiryDate(e.target.value);
-    };
+  return (
+    <form className="paymentForm" onSubmit={handlePaymentSubmit}>
+      <div className="paymentFormOptions">
+        <label className="paymentFormOption">
+          <input
+            type="radio"
+            name="payment"
+            value="paypal"
+            checked={paymentMethod === "paypal"}
+            onChange={handlePaymentMethodChange}
+          />
+          <span>PayPal</span>
+        </label>
+        <label className="paymentFormOption">
+          <input
+            type="radio"
+            name="payment"
+            value="card"
+            checked={paymentMethod === "card"}
+            onChange={handlePaymentMethodChange}
+          />
+          <span>Credit / Debit card</span>
+        </label>
+      </div>
 
-    const handleCVVChange = (e) => {
-        setCVV(e.target.value);
-    };
-
-    const handlePaymentSubmit = (e) => {
-        e.preventDefault();
-        
-        if (paymentMethod === "paypal") {
-            // Handle PayPal payment
-        } else if (paymentMethod === "card") {
-            // Handle card payment
-        }
-
-        handleSubmit(e, paymentMethod);
-    };
-
-    return (
-        <div className="payment-form">
-            <div className="titles">
-                <h1><i className="bi bi-wallet2"></i> Payment Information</h1>
-                <hr />
+      {paymentMethod === "card" && (
+        <div className="paymentFormCardFields">
+          <div className="checkoutFormField">
+            <label htmlFor="cardNumber">Card number</label>
+            <input
+              type="text"
+              id="cardNumber"
+              value={cardNumber}
+              onChange={(e) => setCardNumber(e.target.value)}
+              placeholder="1234 5678 9012 3456"
+            />
+          </div>
+          <div className="paymentFormRow">
+            <div className="checkoutFormField">
+              <label htmlFor="expiryDate">Expiry</label>
+              <input
+                type="text"
+                id="expiryDate"
+                value={expiryDate}
+                onChange={(e) => setExpiryDate(e.target.value)}
+                placeholder="MM/YY"
+              />
             </div>
-            <form className="checkOutForm" onSubmit={handlePaymentSubmit}>
-                <div className="payment-options">
-                    <input
-                        type="radio"
-                        id="paypal"
-                        value="paypal"
-                        checked={paymentMethod === "paypal"}
-                        onChange={handlePaymentMethodChange}
-                    />
-                    <label htmlFor="paypal">PayPal</label>
-
-                    <input
-                        type="radio"
-                        id="card"
-                        value="card"
-                        checked={paymentMethod === "card"}
-                        onChange={handlePaymentMethodChange}
-                    />
-                    <label htmlFor="card">Credit/Debit Card</label>
-                </div>
-
-                {paymentMethod === "card" && (
-                    <div className="card-details">
-                        <div className="checkoutInput">
-                            <label htmlFor="cardNumber" className="cardLabel">Card Number:</label>
-                            <input
-                                type="text"
-                                id="cardNumber"
-                                value={cardNumber}
-                                onChange={handleCardNumberChange}
-                                required
-                            />
-                        </div>
-                        <div className="cardDates">
-                            <div className="checkoutInput">
-                                <label htmlFor="expiryDate" className="cardLabel">Expiry:</label>
-                                <input
-                                type="text"
-                                id="expiryDate"
-                                value={expiryDate}
-                                onChange={handleExpiryDateChange}
-                                placeholder="MM/YYYY"
-                                required
-                                />
-                            </div>
-                            <div className="checkoutInput">
-                                <label htmlFor="cvv">CVV:</label>
-                                <input
-                                type="text"
-                                id="cvv"
-                                value={cvv}
-                                onChange={handleCVVChange}
-                                required
-                                />
-                            </div>
-                        </div>
-                    </div>
-                )}
-                {paymentMethod === "paypal" && (
-                    <>
-                    <div className="checkoutInput">
-                        <label htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                        />
-                    </div>
-                    <div className="checkoutInput">
-                        <label htmlFor="password">Password:</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            required
-                        />
-                    </div>
-                    </>
-                )}
-
-                <button type="submit">Order</button>
-            </form>
+            <div className="checkoutFormField">
+              <label htmlFor="cvv">CVV</label>
+              <input
+                type="text"
+                id="cvv"
+                value={cvv}
+                onChange={(e) => setCVV(e.target.value)}
+                placeholder="123"
+              />
+            </div>
+          </div>
         </div>
-    );
+      )}
+
+      {paymentMethod === "paypal" && (
+        <p className="paymentFormPayPalNote">You will be redirected to PayPal to complete payment.</p>
+      )}
+
+      <button type="submit" className="paymentFormSubmit" disabled={isSubmitting}>
+        {isSubmitting ? (
+          <>
+            <span className="paymentFormSubmitSpinner" aria-hidden />
+            Placing order…
+          </>
+        ) : (
+          "Place order"
+        )}
+      </button>
+    </form>
+  );
 }
 
 export default PaymentForm;

@@ -11,6 +11,7 @@ const orderSchema = new mongoose.Schema({
     userID: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     address: { type: addressSchema, required: true },
     status: { type: String, default: "Pending" },
+    shippingMethod: { type: String, enum: ["standard", "express"], default: "standard" },
     items: [{ 
         productID: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
         quantity: { type: Number, required: true }
