@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./Home.scss";
 import HomeBrands from "../../components/MiniComponents/HomeBrands/HomeBrands";
+import FeaturedSlider from "../../components/MiniComponents/FeaturedSlider/FeaturedSlider";
 import BenefitsSection from "../../components/MiniComponents/BenefitsSection/BenefitsSection";
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
         </div>
       </div>
       <HomeBrands />
+      <FeaturedSlider />
       <BenefitsSection />
     </div>
     );
