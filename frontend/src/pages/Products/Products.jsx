@@ -121,7 +121,7 @@ function Products() {
     <div className="productsPage">
       <div className="productsContainer">
         <header className="heroHeader">
-          <h1 className="heroTitle">Products</h1>
+          <h1 className="pageHeroTitle">Products</h1>
           <p className="heroSubtitle">Premium diecast models for collectors and racing fans</p>
           <div className="heroChips">
             <button type="button" className={`chip ${newOnly ? 'chipActive' : 'chipAccent'}`} onClick={() => handleBadgeFilter('new')} aria-pressed={newOnly}>New arrivals</button>

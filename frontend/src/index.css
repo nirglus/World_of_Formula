@@ -46,3 +46,29 @@ html {
 button, a, img {
     transition: all 0.25s ease;
 }
+
+/* Reusable page/section title with red accent underline — use on h1/h2 across pages */
+.pageHeroTitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+    font-family: var(--headingFont);
+    letter-spacing: -0.02em;
+}
+
+.pageHeroTitle::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-red);
+    margin-top: 8px;
+    margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+    .pageHeroTitle {
+        font-size: 1.5rem;
+    }
+}

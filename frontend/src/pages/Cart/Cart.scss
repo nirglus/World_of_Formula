@@ -9,16 +9,11 @@
 }
 
 .cartPageTitle {
-  margin: 0;
-  font-family: var(--headingFont);
-  font-size: 1.75rem;
-  text-transform: uppercase;
-  color: var(--text);
-  letter-spacing: -0.02em;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 10px;
 }
+
 
 .cartEmptyState {
   max-width: 420px;
@@ -76,8 +71,5 @@
 @media (max-width: 768px) {
   .cartPage {
     padding: 24px 16px 40px;
-  }
-  .cartPageTitle {
-    font-size: 1.5rem;
   }
 }

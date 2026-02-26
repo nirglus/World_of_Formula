@@ -34,7 +34,7 @@ function Cart() {
         <header className="cartPageHeader">
           <h1 className="cartPageTitle">
             <i className="bi bi-cart3" aria-hidden />
-            My Cart
+            <span className="pageHeroTitle">My Cart</span>
           </h1>
         </header>
         <div className="checkoutThankYouCard">
@@ -57,8 +57,7 @@ function Cart() {
     <div className="cartPage">
       <header className="cartPageHeader">
         <h1 className="cartPageTitle">
-          <i className="bi bi-cart3" aria-hidden />
-          My Cart
+          <span className="pageHeroTitle">My Cart</span>
         </h1>
       </header>
 

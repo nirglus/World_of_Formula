@@ -44,7 +44,7 @@ function Navbar() {
             {user && <li><NavLink to={`/account/${user.id}`} onClick={closeMenu}>My Account</NavLink></li>}
             {isModerator(user) && <li><NavLink to="/dashboard" onClick={closeMenu}>Dashboard</NavLink></li>}
             {user ? (
-              <li><button type="button" className="navSignOut" onClick={signOut}><i className="bi bi-box-arrow-left"></i> Sign out, <b>{user.fullName}</b></button></li>
+              <li><button type="button" className="navSignOut" onClick={() => { signOut(); closeMenu(); }}><i className="bi bi-box-arrow-left"></i> Sign out, <b>{user.fullName}</b></button></li>
             ) : (
               <li><NavLink to="/login" onClick={closeMenu}>Login</NavLink></li>
             )}

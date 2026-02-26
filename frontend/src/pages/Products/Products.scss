@@ -19,24 +19,7 @@ $containerMax: 1200px;
     margin-bottom: 32px;
 }
 
-.heroTitle {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--text);
-    margin: 0;
-    font-family: var(--headingFont);
-    letter-spacing: -0.02em;
-
-    &::after {
-        content: "";
-        display: block;
-        width: 60px;
-        height: 3px;
-        background: var(--accent-red);
-        margin-top: 8px;
-        margin-bottom: 18px;
-    }
-}
+/* Page title uses global .pageHeroTitle (index.css) */
 
 .heroSubtitle {
     font-size: 1rem;
@@ -269,7 +252,6 @@ button.chip {
 @media (max-width: 600px) {
     .productsPage { padding: 32px 16px 48px; }
     .heroHeader { margin-bottom: 32px; }
-    .heroTitle { font-size: 1.5rem; }
     .heroSubtitle { font-size: 0.95rem; }
     .toolbarCard { padding: 16px; }
     .productsGrid { grid-template-columns: 1fr; gap: 24px; }

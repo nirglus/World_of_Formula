@@ -55,7 +55,6 @@ const ImageSlider = ({ slides }) => {
     <div className="imageSliderWrap">
       <div className="slideFrame">
         <img
-          key={currentIndex}
           src={currentUrl}
           alt={slides[currentIndex]?.title || `Slide ${currentIndex + 1}`}
           className={`slideImage ${loadedIndex === currentIndex ? "slideImageLoaded" : ""}`}
