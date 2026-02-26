@@ -20,8 +20,9 @@ function App() {
   const hideNavbarPaths = ['/login'];
 
   return (
-    <>
+    <div className="appLayout">
       {!hideNavbarPaths.includes(location.pathname) && <Navbar />}
+      <main className="appMain">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/account/:id" element={<UserAcc />} />
@@ -31,8 +32,9 @@ function App() {
         <Route path="/products/:id" element={<SingleItem />} />
         <Route path="/dashboard" element={isModerator(user) ? <Dashboard /> : <Navigate to="/" />} />
       </Routes>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

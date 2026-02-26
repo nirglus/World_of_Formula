@@ -6,7 +6,7 @@
     
     .sectionTitle{
         font-family: var(--headingFont);
-        font-size: 3em;
+        font-size: 1.75rem;
         text-transform: uppercase;
     }
 
@@ -23,7 +23,7 @@
             gap: 8px;
         }
         i{
-            color: green;
+            color: var(--accent-red);
             font-size: 30px;
         }
     }

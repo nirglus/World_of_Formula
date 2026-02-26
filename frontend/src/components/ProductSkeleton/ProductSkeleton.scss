@@ -6,16 +6,16 @@
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 15px;
-  background-color: #fff;
+  background-color: var(--brand-white);
   min-height: 320px;
 }
 
 .skeleton {
   background: linear-gradient(
     90deg,
-    #e8e8e8 25%,
-    #f0f0f0 50%,
-    #e8e8e8 75%
+    var(--border) 25%,
+    var(--bg) 50%,
+    var(--border) 75%
   );
   background-size: 200% 100%;
   animation: skeletonShimmer 1.2s ease-in-out infinite;

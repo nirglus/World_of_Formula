@@ -1,5 +1,212 @@
-.cartItems{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.cartLayout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.cartItemsCol {
+  min-width: 0;
+}
+
+.cartItemsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartItemCard {
+  margin: 0;
+}
+
+/* Skeleton */
+.cartSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartSkeletonRow {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  min-height: 100px;
+}
+
+.cartSkeletonRow.skeleton {
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: cartSkeletonShimmer 1.2s ease-in-out infinite;
+}
+
+.cartSkeletonImg.skeleton {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: cartSkeletonShimmer 1.2s ease-in-out infinite;
+}
+
+.cartSkeletonBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cartSkeletonTitle.skeleton {
+  height: 18px;
+  width: 70%;
+  border-radius: 4px;
+}
+
+.cartSkeletonPrice.skeleton {
+  height: 14px;
+  width: 50px;
+  border-radius: 4px;
+}
+
+.cartSkeletonQty.skeleton {
+  height: 32px;
+  width: 100px;
+  border-radius: 6px;
+}
+
+@keyframes cartSkeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.cartSummaryCol {
+  position: sticky;
+  top: 100px;
+}
+
+.cartSummarySkeleton.skeleton {
+  height: 280px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, var(--border) 25%, var(--bg) 50%, var(--border) 75%);
+  background-size: 200% 100%;
+  animation: cartSkeletonShimmer 1.2s ease-in-out infinite;
+}
+
+.cartSummaryCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.cartSummaryTitle {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.cartSummaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.cartSummaryRowMuted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.cartSummaryDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 16px 0;
+}
+
+.cartSummaryTotal {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+}
+
+.cartSummaryCta {
+  width: 100%;
+  margin-top: 20px;
+  min-height: 48px;
+  padding: 0 20px;
+  background: var(--accent-red);
+  color: var(--brand-white);
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: var(--accent-red-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+}
+
+.cartSummaryCancel {
+  width: 100%;
+  margin-top: 20px;
+  min-height: 48px;
+  padding: 0 20px;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    color: var(--text);
+    border-color: var(--muted);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cartLayout {
+    grid-template-columns: 1fr;
+  }
+  .cartSummaryCol {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .cartSkeletonRow {
+    min-height: 80px;
+  }
+  .cartSkeletonImg.skeleton {
+    width: 72px;
+    height: 72px;
+  }
 }

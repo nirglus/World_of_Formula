@@ -1,26 +1,58 @@
-.accountDashboard{
-    min-height: 100vh;
-    width: 100%;
+/* Account dashboard — scoped under .accountDashboard, brand palette only */
+
+.accountDashboard {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background: var(--bg);
+  padding: 32px 24px 48px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  .dashboardDisplay {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    min-width: 0;
+  }
 
-    .dashboardDisplay{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content: space-between;
-    }
+  .compDisplay {
+    flex: 1;
+    min-width: 0;
+    overflow-x: hidden;
+  }
 }
-.compDisplay{
-    flex: 8;
+
+@media (max-width: 768px) {
+  .accountDashboard {
+    padding: 24px 16px 40px;
+
+    .dashboardDisplay {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
 }
 
-@media (max-width: 650px){
-    .accountDashboard{
-        .dashboardDisplay{
-            flex-direction: column;
-        }
+@media (max-width: 480px) {
+  .accountDashboard {
+    padding: 20px 12px 32px;
 
+    .dashboardDisplay {
+      gap: 12px;
     }
+  }
+}
+
+@media (max-width: 390px) {
+  .accountDashboard {
+    padding: 16px 10px 24px;
+
+    .dashboardDisplay {
+      gap: 10px;
+    }
+  }
 }

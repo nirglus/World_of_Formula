@@ -1,11 +1,253 @@
-.orders{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    .ordersDisp{
-        margin-top: 30px;
-        gap: 20px;
-    }
+/* Orders — scoped under .accountOrders, brand palette only */
 
+.accountOrders {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  overflow-x: hidden;
+}
+
+.accountOrdersHeader {
+  margin-bottom: 4px;
+
+  .accountOrdersSubtitle {
+    margin: 6px 0 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+}
+
+.accountOrdersCard {
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.accountOrdersList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Empty state */
+.accountOrdersEmpty {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.accountOrdersEmptyIcon {
+  font-size: 2.5rem;
+  color: var(--muted);
+  margin-bottom: 16px;
+
+  i {
+    display: block;
+  }
+}
+
+.accountOrdersEmptyTitle {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.accountOrdersEmptySub {
+  margin: 0 0 24px 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.accountOrdersEmptyCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 24px;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+}
+
+/* Skeleton */
+.accountOrdersSkeletonWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accountOrdersSkeletonCard {
+  background: var(--brand-white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.accountOrdersSkeletonLine {
+  height: 14px;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    var(--bg) 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  animation: accountOrdersShimmer 1.2s ease-in-out infinite;
+}
+
+.accountOrdersSkeletonTitle {
+  width: 60%;
+  margin-bottom: 12px;
+}
+
+.accountOrdersSkeletonShort {
+  width: 40%;
+  margin-top: 8px;
+}
+
+@keyframes accountOrdersShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .accountOrders {
+    gap: 20px;
+  }
+
+  .accountOrdersCard {
+    padding: 16px;
+  }
+
+  .accountOrdersHeader .accountOrdersSubtitle {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .accountOrders {
+    gap: 16px;
+  }
+
+  .accountOrdersCard {
+    padding: 12px 14px;
+    border-radius: 14px;
+  }
+
+  .accountOrdersEmpty {
+    max-width: 100%;
+    padding: 32px 20px;
+    margin: 0;
+    border-radius: 14px;
+  }
+
+  .accountOrdersEmptyIcon {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .accountOrdersEmptyTitle {
+    font-size: 1.1rem;
+  }
+
+  .accountOrdersEmptySub {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+  }
+
+  .accountOrdersEmptyCta {
+    min-height: 48px;
+    padding: 0 20px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 280px;
+    box-sizing: border-box;
+  }
+
+  .accountOrdersSkeletonCard {
+    padding: 14px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 390px) {
+  .accountOrders {
+    gap: 12px;
+  }
+
+  .accountOrdersCard {
+    padding: 10px 12px;
+    border-radius: 12px;
+  }
+
+  .accountOrdersHeader .accountOrdersSubtitle {
+    font-size: 0.8rem;
+  }
+
+  .accountOrdersList {
+    gap: 12px;
+  }
+
+  .accountOrdersEmpty {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .accountOrdersEmptyIcon {
+    font-size: 1.75rem;
+    margin-bottom: 10px;
+  }
+
+  .accountOrdersEmptyTitle {
+    font-size: 1rem;
+  }
+
+  .accountOrdersEmptySub {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+
+  .accountOrdersEmptyCta {
+    min-height: 44px;
+    padding: 0 16px;
+    font-size: 0.85rem;
+    max-width: 100%;
+  }
+
+  .accountOrdersSkeletonCard {
+    padding: 12px;
+    border-radius: 12px;
+  }
 }

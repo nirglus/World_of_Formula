@@ -12,8 +12,12 @@ const productSchema = new mongoose.Schema({
     scale: {type: String, required: false},
     totalQuantity: {type: Number, required: true},
     active: {type: Boolean, required: false, default: true},
-    price: {type: Number, required: true}
-})
+    price: {type: Number, required: true},
+    rating: {type: Number, required: false},
+    numReviews: {type: Number, required: false},
+    isNew: {type: Boolean, required: false},
+    isBestSeller: {type: Boolean, required: false}
+}, { timestamps: true })
 
 const Product = mongoose.model("Product", productSchema);
 

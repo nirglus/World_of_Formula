@@ -1,17 +1,157 @@
-.thankYou{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 50px;
-    h1{
-        font-family: var(--headingFont);
-        text-transform: uppercase;
-    }
+.checkoutSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px){
-    .thankYou{
-        text-align: center;
-        padding: 20px;
-    }
+.checkoutStepCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.checkoutStepLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* Empty cart in checkout */
+.checkoutEmptyCard {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 28px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.checkoutEmptyMessage {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.checkoutEmptySub {
+  margin: 0 0 24px 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.checkoutEmptyCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  background: var(--accent-red);
+  color: var(--brand-white);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: var(--accent-red-hover);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+}
+
+.checkoutError {
+  margin: 0 0 16px 0;
+  padding: 12px 16px;
+  background: rgba(200, 60, 60, 0.12);
+  color: var(--accent-red);
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+/* Thank you card */
+.checkoutThankYouCard {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 48px 28px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.checkoutThankYouIcon {
+  color: var(--accent-red);
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.checkoutThankYouTitle {
+  margin: 0 0 12px 0;
+  font-family: var(--headingFont);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.checkoutThankYouText {
+  margin: 0 0 28px 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.checkoutThankYouCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  background: var(--accent-red);
+  color: var(--brand-white);
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background: var(--accent-red-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-red);
+    outline-offset: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .checkoutStepCard {
+    padding: 16px 20px;
+  }
+  .checkoutThankYouCard {
+    padding: 32px 20px;
+    margin: 0;
+  }
+  .checkoutThankYouCta,
+  .checkoutEmptyCta {
+    width: 100%;
+  }
 }

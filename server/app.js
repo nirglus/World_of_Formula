@@ -8,11 +8,12 @@ const pingRoute = require('./routes/ping.routes');
 const cors = require("cors");
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
 app.use("/wof/users", usersRouter);
-app.use("/wof/products",productsRouter);
+app.use("/wof/products", productsRouter);
 app.use("/wof/cart", cartsRouter);
 app.use("/wof/orders", ordersRouter);
 app.use('/wof/ping', pingRoute);

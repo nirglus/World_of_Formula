@@ -1,28 +1,48 @@
 import "./AccountSidebar.scss";
-function AccountSidebar({setSelectedComponent, selectedComponent, user}) {
-  
-  const handleClick = (component) => {
-    setSelectedComponent(component);
-  };
+
+function getInitials(fullName) {
+  if (!fullName || typeof fullName !== "string") return "?";
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+  return (parts[0] && parts[0][0]) ? parts[0][0].toUpperCase() : "?";
+}
+
+function AccountSidebar({ setSelectedComponent, selectedComponent, user }) {
+  const handleClick = (component) => setSelectedComponent(component);
+  const fullName = user?.fullName || "";
+  const initials = getInitials(fullName);
 
   return (
-    <div className="sidebar">
-      <div className="titles">
-          <h3>Hello, {user?.fullName}!</h3>
-          <div className="avatar"></div>
-
+    <aside className="accountSidebar" aria-label="Account navigation">
+      <div className="accountSidebarHeader">
+        <div className="accountSidebarAvatar" aria-hidden="true">
+          {initials}
+        </div>
+        <div className="accountSidebarGreeting">
+          <h2 className="accountSidebarTitle">Hello, {fullName || "User"}!</h2>
+          <p className="accountSidebarSubtitle">Account</p>
+        </div>
       </div>
-      <div className="spans">
-        <span className={`dashLink ${selectedComponent === 'orders' ? 'active' : ''}`} onClick={() => handleClick('orders')}>
-        <i className="bi bi-receipt-cutoff"></i> My Orders
-        </span>
-        <span className={`dashLink ${selectedComponent === 'settings' ? 'active' : ''}`} onClick={() => handleClick('settings')}>
-         <i className="bi bi-gear-fill"></i> Settings
-        </span>
-      </div>
-
-  </div>
-  )
+      <nav className="accountSidebarNav">
+        <button
+          type="button"
+          className={`accountSidebarLink ${selectedComponent === "orders" ? "accountSidebarLinkActive" : ""}`}
+          onClick={() => handleClick("orders")}
+        >
+          <i className="bi bi-receipt-cutoff" aria-hidden="true" />
+          My Orders
+        </button>
+        <button
+          type="button"
+          className={`accountSidebarLink ${selectedComponent === "settings" ? "accountSidebarLinkActive" : ""}`}
+          onClick={() => handleClick("settings")}
+        >
+          <i className="bi bi-gear-fill" aria-hidden="true" />
+          Settings
+        </button>
+      </nav>
+    </aside>
+  );
 }
 
 export default AccountSidebar

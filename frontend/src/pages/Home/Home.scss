@@ -20,8 +20,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-blend-mode: color;
-  background-color: #1313135d;
-  color: #fff;
+  background-color: rgba(11, 11, 15, 0.36);
+  color: var(--brand-white);
 
   .contentOverlay{
     margin: 0 0 100px 50px;  

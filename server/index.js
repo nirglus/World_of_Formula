@@ -13,7 +13,7 @@ mongoose.connect(config.MONGO_URL)
 
 const PORT = process.env.PORT || 2000;
 
-app.listen(PORT, () =>{
+app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     keepServerAlive();
-})
+});

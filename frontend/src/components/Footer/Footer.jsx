@@ -3,34 +3,34 @@ import "./Footer.scss";
 
 function Footer() {
   return (
-    <footer>
-      <div className="topFooter">
-        <div className="company">
-            <div className="logo">
-              <h2>World of Formula</h2>
-            </div>
-          <p>From track to shelf, Capturing racing spirit</p>
+    <footer className="siteFooter">
+      <div className="footerGrid">
+        <div className="footerCol footerBrand">
+          <h2 className="footerLogo">World of Formula</h2>
+          <p className="footerTagline">Premium diecast models for collectors and racing fans.</p>
         </div>
-        <div className="projects">
-          <h2>Other Products</h2>
-          <a href="https://nirglus.github.io/Movies-Project/html/index.html">MovieNatic</a>
-          <a href="https://resumematrix-50ace.web.app/">ResumeMatrix</a>
-          <a href="https://nirglus.github.io/age-calculator-app-main/">Age Calculator</a>
+        <div className="footerCol">
+          <h3 className="footerHeading">Support</h3>
+          <a href="#">Contact</a>
+          <a href="#">Shipping</a>
+          <a href="#">Returns</a>
+        </div>
+        <div className="footerCol">
+          <h3 className="footerHeading">Legal</h3>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
         </div>
       </div>
-      <div className="bottomFooter">
-        <div className="copyright">
-          <p>© {currentYear}  World of Formula: All rights reserved</p>
-        </div>
-        <div className="icons">
-          <i className="bi bi-facebook"></i>
-          <i className="bi bi-whatsapp"></i>
-          <a href="https://github.com/nirglus"><i className="bi bi-github"></i></a>
-          <i className="bi bi-envelope-at-fill"></i>
+      <div className="footerBottom">
+        <p className="footerCopyright">© {currentYear} World of Formula. All rights reserved.</p>
+        <div className="footerSocial">
+          <a href="https://github.com/nirglus" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i className="bi bi-github" /></a>
+          <a href="#" aria-label="Instagram"><i className="bi bi-instagram" /></a>
+          <a href="#" aria-label="Twitter"><i className="bi bi-twitter-x" /></a>
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
