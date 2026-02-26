@@ -34,10 +34,10 @@ This is an independent project built end-to-end, including:
 ## Live Demo
 
 - **Frontend (Firebase):** https://world-of-formula-4cded.web.app
-- **Backend (Render):** https://world-of-formula.onrender.com/
 
 *Note: the backend may be inactive at times due to free-tier hosting limitations.*
 
 ## Screenshot
+
 
 ![World of Formula](https://github.com/nirglus/IITC-Studies/assets/119694737/47f58d5e-32d6-445d-8266-642be7df2a0b)
