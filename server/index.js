@@ -12,7 +12,6 @@ mongoose.connect(config.MONGO_URL)
    });
 
 const PORT = process.env.PORT || 2000;
-    console.log("[CART_DEBUG] To see cart/order logs here, point frontend to this server (e.g. in .env: VITE_API_URL=http://localhost:" + PORT + "/wof)");
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
