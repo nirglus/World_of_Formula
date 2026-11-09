@@ -1,15 +1,18 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = "123@123"
+const { config } = require("../config");
 
-const generateToken = (payload) =>{
-    const token = jwt.sign(payload,
-        jwtSecret, { expiresIn: "4h"});
-        return token;
+const jwtSecret = config.JWT_SECRET;
+
+if (!jwtSecret) {
+  throw new Error("JWT_SECRET environment variable is required");
 }
 
-const verifyToken = (token) =>{
-    const payload =  jwt.verify(token, jwtSecret);
-    return payload;
-}
+const generateToken = (payload) => {
+  return jwt.sign(payload, jwtSecret, { expiresIn: "4h" });
+};
 
-module.exports = { generateToken, verifyToken }
+const verifyToken = (token) => {
+  return jwt.verify(token, jwtSecret);
+};
+
+module.exports = { generateToken, verifyToken };
