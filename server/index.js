@@ -15,5 +15,5 @@ const PORT = process.env.PORT || 2000;
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
-    keepServerAlive();
+    process.env.SERVER_URL && keepServerAlive();
 });

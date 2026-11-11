@@ -11,15 +11,14 @@ function Orders() {
   const [orders, setOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getOrders = async (userID) => {
-    if (!userID) {
+  const getOrders = async () => {
+    if (!headers?.Authorization) {
       setIsLoading(false);
       return;
     }
     setIsLoading(true);
     try {
       const res = await axios.get(`${baseURL}/orders`, {
-        data: { id: userID },
         headers: headers || {},
       });
       setOrders(Array.isArray(res.data) ? res.data : []);
@@ -32,9 +31,9 @@ function Orders() {
   };
 
   useEffect(() => {
-    if (user?.id) getOrders(user.id);
+    if (user?.id && headers?.Authorization) getOrders();
     else setIsLoading(false);
-  }, [user?.id]);
+  }, [user?.id, headers?.Authorization]);
 
   return (
     <div className="accountOrders">
