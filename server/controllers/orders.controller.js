@@ -33,19 +33,20 @@ const getOrder = async(req,res) =>{
     }
 }
 
-const getUserOrders = async(req,res) =>{
-    const id = req.body.id
+const getUserOrders = async (req, res) => {
+    const userID = req.user?.id;
+    if (!userID) return res.status(401).send("Unauthorized");
     try {
-        const orders = await Order.find(id).populate({
-            path: 'items',
-            populate: { path: 'productID' }
-        });;
-        if(orders) return res.send(orders);
-        res.send("Couldn't find orders");
+        const orders = await Order.find({ userID }).populate({
+            path: "items.productID",
+            model: "Product"
+        }).sort({ createdAt: -1 });
+        return res.send(orders || []);
     } catch (error) {
-        res.status(400).send(Error);
+        console.error("getUserOrders error:", error);
+        res.status(400).send("Error");
     }
-}
+};
 
 const updateOrderStatus = async(req,res)=>{
     const body = req.body;

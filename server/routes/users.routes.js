@@ -12,7 +12,7 @@ router.post("/register", register, createNewCart);
 router.post("/login", login);
 router.get("/", auth, getUser)
 router.delete("/:id", auth, authorize(["admin"]), deleteUser);
-router.patch("/:id", auth, updateUser);
+router.patch("/:id", auth, authorize(["admin"]), updateUser);
 
 
 module.exports = router;

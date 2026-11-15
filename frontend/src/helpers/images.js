@@ -7,11 +7,11 @@ export const homeImages = [
 ]
 
 export const brandImages = [
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Mercedes_AMG_Petronas_F1_Logo.svg/2560px-Mercedes_AMG_Petronas_F1_Logo.svg.png',
+    'https://news.microsoft.com/source/wp-content/uploads/2026/01/Microsoft-_-Mercedes-AMG-PETRONAS-F1-logo-lockupPR-2048x963.png',
     'https://i.pinimg.com/originals/14/0a/3f/140a3f8d92b1212d3374838d665e99b6.png',
     'https://i0.wp.com/f1statblog.co.uk/wp-content/uploads/2018/03/ferlogo.png?w=370&ssl=1',
-    'https://upload.wikimedia.org/wikipedia/en/thumb/6/66/McLaren_Racing_logo.svg/2560px-McLaren_Racing_logo.svg.png',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Alfa_Romeo_F1_Team_Stake_Logo.svg/2560px-Alfa_Romeo_F1_Team_Stake_Logo.svg.png',
+    'https://thumb.wikimedia.org/wikipedia/en/thumb/6/66/McLaren_Racing_logo.svg/1280px-McLaren_Racing_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail&_=20220211093844',
+    'https://e0.365dm.com/21/01/2048x1152/skysports-aston-martin-f1-2021_5226838.jpg?20210104102348',
     
 
 ]

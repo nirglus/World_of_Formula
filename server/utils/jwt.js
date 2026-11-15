@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
-const jwtSecret = "123@123"
+const { config } = require("../config");
+const jwtSecret = config.JWT_SECRET;
+if (!jwtSecret) throw new Error("JWT_SECRET environment variable is required");
 
 const generateToken = (payload) =>{
     const token = jwt.sign(payload,

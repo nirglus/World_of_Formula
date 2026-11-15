@@ -19,7 +19,7 @@ const authorize = (roles) =>{
     return (req, res, next) =>{
         const user = req.user;
         if (roles.includes(user.role)) next();
-        else res.status(401).send("Not an admin");
+        else res.status(403).send("Not an admin");
     }
 
 }

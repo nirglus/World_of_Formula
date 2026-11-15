@@ -3,7 +3,7 @@ const {createProduct, getSingleProduct, getProducts, updateProduct, disableProdu
 const { auth, authorize } = require("../middlewares/auth");
 const router = Router();
 
-router.post("/",  createProduct);
+router.post("/", auth, authorize(["moderator", "admin"]), createProduct);
 router.get("/", getProducts);
 router.get("/:id", getSingleProduct);
 router.patch("/:id", auth, authorize(["moderator", "admin"]), updateProduct);
