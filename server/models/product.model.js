@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema({
     price: {type: Number, required: true},
     rating: {type: Number, required: false},
     numReviews: {type: Number, required: false},
-    isNew: {type: Boolean, required: false},
+    isNewArrival: {type: Boolean, required: false},
     isBestSeller: {type: Boolean, required: false}
 }, { timestamps: true })
 
