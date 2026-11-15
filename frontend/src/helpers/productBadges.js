@@ -6,7 +6,7 @@ export function isProductNew(product) {
   if (!product) return false;
   const thirtyDaysAgo = Date.now() - THIRTY_DAYS_MS;
   const createdAt = product.createdAt ? new Date(product.createdAt).getTime() : null;
-  return (createdAt && createdAt >= thirtyDaysAgo) || product.isNew === true;
+  return Boolean(createdAt && createdAt >= thirtyDaysAgo) || product.isNewArrival === true;
 }
 
 export function isProductLimited(product) {
