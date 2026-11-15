@@ -8,8 +8,8 @@ function CartItem({ item, isPending, onRemove, onQuantityChange }) {
   const productId = typeof item.productID === "string" ? item.productID : (product?.id ?? product?._id ?? "");
   const title = item.name ?? product?.title ?? product?.name ?? "Product";
   const imageUrl = item.image ?? product?.image ?? "";
-  const unitPrice = item.quantity > 0 ? item.price / item.quantity : 0;
-  const lineTotal = item.price;
+  const unitPrice = item.unitPrice ?? item.price ?? 0;
+  const lineTotal = unitPrice * (item.quantity ?? 0);
 
   const [imgSrc, setImgSrc] = useState(imageUrl);
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -40,7 +40,7 @@ function CartItem({ item, isPending, onRemove, onQuantityChange }) {
         <h3 className="cartItemTitle">
           <Link to={`/products/${productId}`}>{title}</Link>
         </h3>
-        <p className="cartItemUnitPrice">${Number(unitPrice).toFixed(2)} each</p>
+        <p className="cartItemUnitPrice">${unitPrice.toFixed(2)} each</p>
         <div className="cartItemActions">
           <div className="cartItemStepper">
             <button
@@ -66,7 +66,7 @@ function CartItem({ item, isPending, onRemove, onQuantityChange }) {
             </button>
           </div>
           {isPending && <span className="cartItemSpinner" aria-hidden />}
-          <p className="cartItemLineTotal">${Number(lineTotal).toFixed(2)}</p>
+          <p className="cartItemLineTotal">${lineTotal.toFixed(2)}</p>
         </div>
       </div>
       <button
