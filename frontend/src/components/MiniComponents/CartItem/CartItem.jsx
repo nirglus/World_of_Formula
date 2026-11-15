@@ -8,8 +8,8 @@ function CartItem({ item, isPending, onRemove, onQuantityChange }) {
   const productId = typeof item.productID === "string" ? item.productID : (product?.id ?? product?._id ?? "");
   const title = item.name ?? product?.title ?? product?.name ?? "Product";
   const imageUrl = item.image ?? product?.image ?? "";
-  const unitPrice = item.quantity > 0 ? item.price / item.quantity : 0;
-  const lineTotal = item.price;
+  const unitPrice = Number(item.unitPrice ?? item.price) || 0;
+  const lineTotal = unitPrice * (Number(item.quantity) || 0);
 
   const [imgSrc, setImgSrc] = useState(imageUrl);
   const [imgLoaded, setImgLoaded] = useState(false);
