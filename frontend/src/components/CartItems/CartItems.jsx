@@ -54,7 +54,7 @@ function CartItems({ isCheckout, onCheckoutClick, onCancelCheckout }) {
     const cartId = userCart?.id;
     if (!cartId) return;
     const productId = typeof item.productID === "string" ? item.productID : (item.productID?._id ?? item.productID?.id);
-    const unitPrice = Number(item.unitPrice ?? item.price) || 0;
+    const unitPrice = item.unitPrice ?? item.price ?? 0;
     const newQty = item.quantity + delta;
     const itemId = item.id ?? item._id;
     if (newQty < 1) {
